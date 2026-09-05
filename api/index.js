@@ -28,7 +28,7 @@ app.post('/api/send', async (req, res) => {
             },
             token: token
         };
-;
+
         const response = await admin.messaging().send(message);
         res.status(200).send({ success: true, response });
     } catch (error) {
