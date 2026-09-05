@@ -18,10 +18,17 @@ app.post('/api/send', async (req, res) => {
     }
 
     try {
-        const message = {
-            notification: { title, body },
+                const message = {
+            data: { 
+                title: title, 
+                body: body 
+            },
+            android: {
+                priority: "high"
+            },
             token: token
         };
+;
         const response = await admin.messaging().send(message);
         res.status(200).send({ success: true, response });
     } catch (error) {
